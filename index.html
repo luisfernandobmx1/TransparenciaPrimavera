@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiscaliza Primavera - PE</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+        }
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h2 { border-bottom: 2px solid #0056b3; padding-bottom: 10px; color: #333; }
+        h3 { color: #0056b3; margin-top: 5px; }
+        .btn-buscar {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .btn-buscar:hover { background-color: #218838; }
+        .loading { text-align: center; font-style: italic; color: #666; }
+        .item-gasto {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #0056b3;
+            border-radius: 4px;
+        }
+        .valor { font-weight: bold; color: #d9534f; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Fiscaliza Primavera - PE</h1>
+        <p>Acompanhamento de Gastos e Contratos Públicos</p>
+        <button class="btn-buscar" onclick="carregarDados()">Buscar Dados</button>
+    </header>
+
+    <div id="status" class="loading" style="display: none;">Buscando dados no Portal da Transparência...</div>
+
+    <div class="container">
+        <div class="card">
+            <h2>Poder Executivo (Prefeitura)</h2>
+            <h3>Prefeito: Jason Falcão</h3>
+            <div id="dados-prefeito">
+                <p>Clique em "Buscar Dados" para carregar os contratos e despesas gerais do ano atual.</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Poder Legislativo (Câmara)</h2>
+            <h3>Vereadores</h3>
+            <div id="dados-vereadores">
+                <p>Clique em "Buscar Dados" para carregar as despesas da Câmara Municipal.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
